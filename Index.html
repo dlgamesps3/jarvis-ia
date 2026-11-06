@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JARVIS | Stark Industries</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #02060c;
+  color: #d8f7ff;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center, #07304455, transparent 55%),
+    linear-gradient(90deg, transparent 49.9%, #0c5b7620 50%, transparent 50.1%);
+  pointer-events: none;
+}
+
+header {
+  height: 65px;
+  padding: 0 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #16718a55;
+  position: relative;
+  z-index: 2;
+}
+
+.logo {
+  font-size: 19px;
+  letter-spacing: 5px;
+  color: #7beaff;
+  text-shadow: 0 0 15px #00bfff;
+}
+
+.status {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: #55e9ff;
+}
+
+main {
+  height: calc(100vh - 110px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.interface {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.core {
+  width: 290px;
+  height: 290px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 15px #00cfff66);
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px solid #20caff;
+  box-shadow: 0 0 12px #00bfff55;
+}
+
+.ring.one {
+  inset: 0;
+  border-style: dashed;
+  animation: rotate 35s linear infinite;
+}
+
+.ring.two {
+  inset: 18px;
+  border-width: 2px;
+  border-left-color: transparent;
+  border-right-color: transparent;
+  animation: rotate 12s linear infinite reverse;
+}
+
+.ring.three {
+  inset: 38px;
+  border-style: dotted;
+  animation: rotate 18s linear infinite;
+}
+
+.ring.four {
+  inset: 57px;
+  border-width: 2px;
+  border-top-color: transparent;
+  border-bottom-color: transparent;
+  animation: rotate 8s linear infinite reverse;
+}
+
+.core-center {
+  width: 115px;
+  height: 115px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #167e9c55, #03111d 70%);
+  border: 1px solid #55dfff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  box-shadow: 0 0 30px #00cfff66, inset 0 0 25px #00bfff44;
+}
+
+.core-center strong {
+  font-size: 23px;
+  letter-spacing: 3px;
+  color: #a4f2ff;
+  text-shadow: 0 0 15px #00cfff;
+}
+
+.core-center small {
+  font-size: 8px;
+  letter-spacing: 3px;
+  margin-top: 7px;
+  color: #40c9e8;
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+h2 {
+  margin-top: 30px;
+  font-size: 12px;
+  letter-spacing: 5px;
+  font-weight: 400;
+  color: #7deaff;
+}
+
+#response {
+  margin-top: 15px;
+  font-size: 13px;
+  color: #b4dce8;
+  text-align: center;
+  max-width: 300px;
+  min-height: 20px;
+}
+
+.mic {
+  margin-top: 28px;
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 1px solid #28c9ef;
+  background: #061b2b;
+  color: #8deeff;
+  font-size: 25px;
+  cursor: pointer;
+  box-shadow: 0 0 20px #00bfff44;
+  transition: .3s;
+}
+
+.mic:hover {
+  background: #0b3b50;
+  box-shadow: 0 0 30px #00cfff99;
+  transform: scale(1.08);
+}
+
+.mic.active {
+  background: #07506a;
+  box-shadow: 0 0 35px #00cfff;
+  animation: pulse 1s infinite alternate;
+}
+
+@keyframes pulse {
+  to { transform: scale(1.12); }
+}
+
+footer {
+  height: 45px;
+  border-top: 1px solid #16718a55;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: #327c91;
+}
+
+@media(max-width: 500px) {
+  header { padding: 0 18px; }
+  .core { width: 260px; height: 260px; }
+  .core-center { width: 105px; height: 105px; }
+  h2 { font-size: 10px; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">J.A.R.V.I.S</div>
+  <div class="status">● ONLINE</div>
+</header>
+
+<main>
+  <div class="interface">
+
+    <div class="core">
+      <div class="ring one"></div>
+      <div class="ring two"></div>
+      <div class="ring three"></div>
+      <div class="ring four"></div>
+
+      <div class="core-center">
+        <strong>J.A.R.V.I.S</strong>
+        <small>STARK AI</small>
+      </div>
+    </div>
+
+    <h2>ASSISTENTE PESSOAL</h2>
+
+    <div id="response">
+      Aguardando suas instruções, senhor.
+    </div>
+
+    <button class="mic" id="mic" onclick="startListening()">🎙</button>
+
+    <div style="margin-top:15px;font-size:9px;letter-spacing:2px;color:#398ba2">
+      CLIQUE PARA FALAR
+    </div>
+
+  </div>
+</main>
+
+<footer>
+  STARK INDUSTRIES · JARVIS SYSTEM
+</footer>
+
+<script>
+const response = document.getElementById("response");
+const mic = document.getElementById("mic");
+
+const SpeechRecognition =
+  window.SpeechRecognition ||
+  window.webkitSpeechRecognition;
+
+let recognition;
+
+function speak(text) {
+  speechSynthesis.cancel();
+
+  const voice = new SpeechSynthesisUtterance(text);
+  voice.lang = "pt-BR";
+  voice.rate = 1;
+  voice.pitch = 0.9;
+
+  speechSynthesis.speak(voice);
+}
+
+function startListening() {
+  if (!SpeechRecognition) {
+    response.textContent =
+      "Reconhecimento de voz não disponível neste navegador.";
+    return;
+  }
+
+  recognition = new SpeechRecognition();
+  recognition.lang = "pt-BR";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.onstart = () => {
+    mic.classList.add("active");
+    response.textContent = "Estou ouvindo, senhor...";
+  };
+
+  recognition.onresult = (event) => {
+    const text = event.results[0][0].transcript;
+    respond(text);
+  };
+
+  recognition.onerror = () => {
+    response.textContent = "Não consegui ouvir. Tente novamente.";
+    mic.classList.remove("active");
+  };
+
+  recognition.onend = () => {
+    mic.classList.remove("active");
+  };
+
+  recognition.start();
+}
+
+function respond(text) {
+  const command = text.toLowerCase();
+
+  let answer = "Entendido, senhor. Ainda estou aprendendo a executar essa solicitação.";
+
+  if (command.includes("olá") || command.includes("oi")) {
+    answer = "Olá, senhor. É um prazer falar com você novamente.";
+  }
+
+  else if (command.includes("seu nome")) {
+    answer = "Meu nome é JARVIS. Seu assistente pessoal.";
+  }
+
+  else if (command.includes("horas")) {
+    answer = "Agora são " +
+      new Date().toLocaleTimeString("pt-BR", {
+        hour: "2-digit",
+        minute: "2-digit"
+      }) + ", senhor.";
+  }
+
+  else if (command.includes("dia")) {
+    answer = "Hoje é " +
+      new Date().toLocaleDateString("pt-BR") + ", senhor.";
+  }
+
+  else if (command.includes("abrir youtube")) {
+    answer = "Abrindo o YouTube, senhor.";
+    window.open("https://youtube.com", "_blank");
+  }
+
+  else if (command.includes("abrir google")) {
+    answer = "Abrindo o Google, senhor.";
+    window.open("https://google.com", "_blank");
+  }
+
+  else if (command.includes("obrigado")) {
+    answer = "Sempre à disposição, senhor.";
+  }
+
+  response.textContent = answer;
+  speak(answer);
+}
+</script>
+
+</body>
+</html>
