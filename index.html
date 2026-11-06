@@ -7,208 +7,194 @@
 <title>JARVIS | Stark Industries</title>
 
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+ background:#02060c;
+ color:#d8f7ff;
+ font-family:Arial,sans-serif;
+ min-height:100vh;
+ overflow:hidden;
 }
 
-body {
-  background: #02060c;
-  color: #d8f7ff;
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-  overflow: hidden;
+header{
+ height:65px;
+ padding:0 25px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ border-bottom:1px solid #16718a55;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background:
-    radial-gradient(ellipse at center, #07304455, transparent 55%),
-    linear-gradient(90deg, transparent 49.9%, #0c5b7620 50%, transparent 50.1%);
-  pointer-events: none;
+.logo{
+ font-size:19px;
+ letter-spacing:5px;
+ color:#7beaff;
+ text-shadow:0 0 15px #00bfff;
 }
 
-header {
-  height: 65px;
-  padding: 0 35px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid #16718a55;
-  position: relative;
-  z-index: 2;
+.status{
+ font-size:10px;
+ letter-spacing:3px;
+ color:#55e9ff;
 }
 
-.logo {
-  font-size: 19px;
-  letter-spacing: 5px;
-  color: #7beaff;
-  text-shadow: 0 0 15px #00bfff;
+main{
+ height:calc(100vh - 110px);
+ display:flex;
+ align-items:center;
+ justify-content:center;
 }
 
-.status {
-  font-size: 10px;
-  letter-spacing: 3px;
-  color: #55e9ff;
+.interface{
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ width:100%;
+ padding:15px;
 }
 
-main {
-  height: calc(100vh - 110px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+.core{
+ width:260px;
+ height:260px;
+ border-radius:50%;
+ position:relative;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ filter:drop-shadow(0 0 15px #00cfff66);
 }
 
-.interface {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.ring{
+ position:absolute;
+ border-radius:50%;
+ border:1px solid #20caff;
+ box-shadow:0 0 12px #00bfff55;
 }
 
-.core {
-  width: 290px;
-  height: 290px;
-  border-radius: 50%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  filter: drop-shadow(0 0 15px #00cfff66);
+.one{inset:0;border-style:dashed;animation:rotate 35s linear infinite}
+.two{inset:18px;border-width:2px;border-left-color:transparent;border-right-color:transparent;animation:rotate 12s linear infinite reverse}
+.three{inset:38px;border-style:dotted;animation:rotate 18s linear infinite}
+.four{inset:57px;border-width:2px;border-top-color:transparent;border-bottom-color:transparent;animation:rotate 8s linear infinite reverse}
+
+.center{
+ width:105px;
+ height:105px;
+ border-radius:50%;
+ background:radial-gradient(circle,#167e9c55,#03111d 70%);
+ border:1px solid #55dfff;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ flex-direction:column;
+ box-shadow:0 0 30px #00cfff66,inset 0 0 25px #00bfff44;
 }
 
-.ring {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid #20caff;
-  box-shadow: 0 0 12px #00bfff55;
+.center strong{
+ font-size:21px;
+ letter-spacing:2px;
+ color:#a4f2ff;
+ text-shadow:0 0 15px #00cfff;
 }
 
-.ring.one {
-  inset: 0;
-  border-style: dashed;
-  animation: rotate 35s linear infinite;
+.center small{
+ font-size:8px;
+ letter-spacing:3px;
+ margin-top:7px;
 }
 
-.ring.two {
-  inset: 18px;
-  border-width: 2px;
-  border-left-color: transparent;
-  border-right-color: transparent;
-  animation: rotate 12s linear infinite reverse;
+@keyframes rotate{to{transform:rotate(360deg)}}
+
+h2{
+ margin-top:25px;
+ font-size:11px;
+ letter-spacing:5px;
+ font-weight:400;
+ color:#7deaff;
 }
 
-.ring.three {
-  inset: 38px;
-  border-style: dotted;
-  animation: rotate 18s linear infinite;
+#response{
+ margin-top:15px;
+ font-size:13px;
+ color:#b4dce8;
+ text-align:center;
+ max-width:330px;
+ min-height:35px;
+ line-height:1.6;
 }
 
-.ring.four {
-  inset: 57px;
-  border-width: 2px;
-  border-top-color: transparent;
-  border-bottom-color: transparent;
-  animation: rotate 8s linear infinite reverse;
+.controls{
+ display:flex;
+ gap:10px;
+ align-items:center;
+ margin-top:20px;
+ width:min(420px,100%);
 }
 
-.core-center {
-  width: 115px;
-  height: 115px;
-  border-radius: 50%;
-  background: radial-gradient(circle, #167e9c55, #03111d 70%);
-  border: 1px solid #55dfff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  box-shadow: 0 0 30px #00cfff66, inset 0 0 25px #00bfff44;
+#message{
+ flex:1;
+ min-width:0;
+ height:46px;
+ border:1px solid #16718a;
+ border-radius:25px;
+ background:#061522;
+ color:#d8f7ff;
+ padding:0 17px;
+ outline:none;
 }
 
-.core-center strong {
-  font-size: 23px;
-  letter-spacing: 3px;
-  color: #a4f2ff;
-  text-shadow: 0 0 15px #00cfff;
+#message:focus{border-color:#42dfff}
+
+button{
+ cursor:pointer;
+ color:#8deeff;
+ background:#061b2b;
+ border:1px solid #28c9ef;
+ box-shadow:0 0 15px #00bfff33;
 }
 
-.core-center small {
-  font-size: 8px;
-  letter-spacing: 3px;
-  margin-top: 7px;
-  color: #40c9e8;
+#send{
+ height:46px;
+ padding:0 18px;
+ border-radius:25px;
 }
 
-@keyframes rotate {
-  to { transform: rotate(360deg); }
+#mic{
+ margin-top:20px;
+ width:58px;
+ height:58px;
+ border-radius:50%;
+ font-size:23px;
 }
 
-h2 {
-  margin-top: 30px;
-  font-size: 12px;
-  letter-spacing: 5px;
-  font-weight: 400;
-  color: #7deaff;
+button:hover{
+ background:#0b3b50;
+ box-shadow:0 0 25px #00cfff88;
 }
 
-#response {
-  margin-top: 15px;
-  font-size: 13px;
-  color: #b4dce8;
-  text-align: center;
-  max-width: 300px;
-  min-height: 20px;
+.active{
+ animation:pulse 1s infinite alternate;
 }
 
-.mic {
-  margin-top: 28px;
-  width: 65px;
-  height: 65px;
-  border-radius: 50%;
-  border: 1px solid #28c9ef;
-  background: #061b2b;
-  color: #8deeff;
-  font-size: 25px;
-  cursor: pointer;
-  box-shadow: 0 0 20px #00bfff44;
-  transition: .3s;
+@keyframes pulse{
+ to{transform:scale(1.1);box-shadow:0 0 35px #00cfff}
 }
 
-.mic:hover {
-  background: #0b3b50;
-  box-shadow: 0 0 30px #00cfff99;
-  transform: scale(1.08);
+footer{
+ height:45px;
+ border-top:1px solid #16718a55;
+ display:flex;
+ justify-content:center;
+ align-items:center;
+ font-size:9px;
+ letter-spacing:3px;
+ color:#327c91;
 }
 
-.mic.active {
-  background: #07506a;
-  box-shadow: 0 0 35px #00cfff;
-  animation: pulse 1s infinite alternate;
-}
-
-@keyframes pulse {
-  to { transform: scale(1.12); }
-}
-
-footer {
-  height: 45px;
-  border-top: 1px solid #16718a55;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 9px;
-  letter-spacing: 3px;
-  color: #327c91;
-}
-
-@media(max-width: 500px) {
-  header { padding: 0 18px; }
-  .core { width: 260px; height: 260px; }
-  .core-center { width: 105px; height: 105px; }
-  h2 { font-size: 10px; }
+@media(max-width:400px){
+ .core{width:230px;height:230px}
+ .controls{gap:6px}
+ #send{padding:0 12px}
 }
 </style>
 </head>
@@ -216,141 +202,154 @@ footer {
 <body>
 
 <header>
-  <div class="logo">J.A.R.V.I.S</div>
-  <div class="status">● ONLINE</div>
+ <div class="logo">J.A.R.V.I.S</div>
+ <div class="status">● ONLINE</div>
 </header>
 
 <main>
-  <div class="interface">
+ <div class="interface">
 
-    <div class="core">
-      <div class="ring one"></div>
-      <div class="ring two"></div>
-      <div class="ring three"></div>
-      <div class="ring four"></div>
+  <div class="core">
+   <div class="ring one"></div>
+   <div class="ring two"></div>
+   <div class="ring three"></div>
+   <div class="ring four"></div>
 
-      <div class="core-center">
-        <strong>J.A.R.V.I.S</strong>
-        <small>STARK AI</small>
-      </div>
-    </div>
-
-    <h2>ASSISTENTE PESSOAL</h2>
-
-    <div id="response">
-      Aguardando suas instruções, senhor.
-    </div>
-
-    <button class="mic" id="mic" onclick="startListening()">🎙</button>
-
-    <div style="margin-top:15px;font-size:9px;letter-spacing:2px;color:#398ba2">
-      CLIQUE PARA FALAR
-    </div>
-
+   <div class="center">
+    <strong>J.A.R.V.I.S</strong>
+    <small>STARK AI</small>
+   </div>
   </div>
+
+  <h2>ASSISTENTE PESSOAL</h2>
+
+  <div id="response">
+   Aguardando suas instruções, senhor.
+  </div>
+
+  <div class="controls">
+   <input id="message" placeholder="Fale com o JARVIS..." autocomplete="off">
+   <button id="send" onclick="sendMessage()">Enviar</button>
+  </div>
+
+  <button id="mic" onclick="startListening()">🎙</button>
+
+  <div style="margin-top:12px;font-size:9px;letter-spacing:2px;color:#398ba2">
+   VOZ E INTELIGÊNCIA ARTIFICIAL
+  </div>
+
+ </div>
 </main>
 
 <footer>
-  STARK INDUSTRIES · JARVIS SYSTEM
+ STARK INDUSTRIES · JARVIS SYSTEM
 </footer>
 
 <script>
+const API = "https://jarvis-api.dlzinaraujo24.workers.dev/";
+
 const response = document.getElementById("response");
+const message = document.getElementById("message");
 const mic = document.getElementById("mic");
 
-const SpeechRecognition =
-  window.SpeechRecognition ||
-  window.webkitSpeechRecognition;
+let history = [];
+let busy = false;
 
-let recognition;
+function speak(text){
+ speechSynthesis.cancel();
 
-function speak(text) {
-  speechSynthesis.cancel();
+ const voice = new SpeechSynthesisUtterance(text);
+ voice.lang = "pt-BR";
+ voice.rate = 1;
+ voice.pitch = 0.9;
 
-  const voice = new SpeechSynthesisUtterance(text);
-  voice.lang = "pt-BR";
-  voice.rate = 1;
-  voice.pitch = 0.9;
-
-  speechSynthesis.speak(voice);
+ speechSynthesis.speak(voice);
 }
 
-function startListening() {
-  if (!SpeechRecognition) {
-    response.textContent =
-      "Reconhecimento de voz não disponível neste navegador.";
-    return;
+async function sendMessage(text){
+ text = (text || message.value).trim();
+
+ if(!text || busy) return;
+
+ busy = true;
+ message.value = "";
+ response.textContent = "Processando sua solicitação, senhor...";
+
+ try{
+  const res = await fetch(API,{
+   method:"POST",
+   headers:{"Content-Type":"application/json"},
+   body:JSON.stringify({
+    message:text,
+    history:history
+   })
+  });
+
+  const data = await res.json();
+
+  if(!res.ok || !data.ok){
+   throw new Error(data.error || "Falha na comunicação.");
   }
 
-  recognition = new SpeechRecognition();
-  recognition.lang = "pt-BR";
-  recognition.continuous = false;
-  recognition.interimResults = false;
+  const answer = data.reply;
 
-  recognition.onstart = () => {
-    mic.classList.add("active");
-    response.textContent = "Estou ouvindo, senhor...";
-  };
+  history.push(
+   {role:"user",content:text},
+   {role:"assistant",content:answer}
+  );
 
-  recognition.onresult = (event) => {
-    const text = event.results[0][0].transcript;
-    respond(text);
-  };
-
-  recognition.onerror = () => {
-    response.textContent = "Não consegui ouvir. Tente novamente.";
-    mic.classList.remove("active");
-  };
-
-  recognition.onend = () => {
-    mic.classList.remove("active");
-  };
-
-  recognition.start();
-}
-
-function respond(text) {
-  const command = text.toLowerCase();
-
-  let answer = "Entendido, senhor. Ainda estou aprendendo a executar essa solicitação.";
-
-  if (command.includes("olá") || command.includes("oi")) {
-    answer = "Olá, senhor. É um prazer falar com você novamente.";
-  }
-
-  else if (command.includes("seu nome")) {
-    answer = "Meu nome é JARVIS. Seu assistente pessoal.";
-  }
-
-  else if (command.includes("horas")) {
-    answer = "Agora são " +
-      new Date().toLocaleTimeString("pt-BR", {
-        hour: "2-digit",
-        minute: "2-digit"
-      }) + ", senhor.";
-  }
-
-  else if (command.includes("dia")) {
-    answer = "Hoje é " +
-      new Date().toLocaleDateString("pt-BR") + ", senhor.";
-  }
-
-  else if (command.includes("abrir youtube")) {
-    answer = "Abrindo o YouTube, senhor.";
-    window.open("https://youtube.com", "_blank");
-  }
-
-  else if (command.includes("abrir google")) {
-    answer = "Abrindo o Google, senhor.";
-    window.open("https://google.com", "_blank");
-  }
-
-  else if (command.includes("obrigado")) {
-    answer = "Sempre à disposição, senhor.";
-  }
+  history = history.slice(-20);
 
   response.textContent = answer;
   speak(answer);
+
+ }catch(error){
+  response.textContent = "Falha de comunicação: " + error.message;
+ }finally{
+  busy = false;
+ }
+}
+
+message.addEventListener("keydown",e=>{
+ if(e.key==="Enter") sendMessage();
+});
+
+const SpeechRecognition =
+ window.SpeechRecognition ||
+ window.webkitSpeechRecognition;
+
+function startListening(){
+
+ if(!SpeechRecognition){
+  response.textContent = "Seu navegador não suporta reconhecimento de voz.";
+  return;
+ }
+
+ const recognition = new SpeechRecognition();
+
+ recognition.lang = "pt-BR";
+ recognition.continuous = false;
+ recognition.interimResults = false;
+
+ recognition.onstart = ()=>{
+  mic.classList.add("active");
+  response.textContent = "Estou ouvindo, senhor...";
+ };
+
+ recognition.onresult = event=>{
+  const text = event.results[0][0].transcript;
+  sendMessage(text);
+ };
+
+ recognition.onerror = ()=>{
+  response.textContent = "Não consegui ouvir. Tente novamente.";
+ };
+
+ recognition.onend = ()=>{
+  mic.classList.remove("active");
+ };
+
+ recognition.start();
 }
 </script>
 
